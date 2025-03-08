@@ -11,9 +11,11 @@ material = "1.10.0"
 activity = "1.8.0"
 constraintlayout = "2.1.4"
 retrofit = "2.11.0"
+ui = "1.7.8"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+androidx-ui = { module = "androidx.compose.ui:ui", version.ref = "ui" }
 converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "converterGson" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
