@@ -16,7 +16,7 @@ import com.example.kotlincocktailapp.ui.theme.KotlinCocktailAppTheme
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
+        //enableEdgeToEdge()
         setContent {
             KotlinCocktailAppTheme {
                 //Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
