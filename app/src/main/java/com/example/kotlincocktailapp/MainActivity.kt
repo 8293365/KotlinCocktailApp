@@ -27,15 +27,16 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+@Preview(showBackground = true)
 @Composable
 fun CocktailApp(){
     CocktailSatNav()
 }
-
+/*
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
     KotlinCocktailAppTheme {
         CocktailApp()
     }
-}
+}*/

@@ -18,13 +18,24 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
+
+
+
+
+
+
 @Composable
 fun CocktailSatNav() {
+
+
+
     val apiService = RetrofitInstance.api
     val coroutineScope = rememberCoroutineScope()
 
     var drink by remember { mutableStateOf<Drink?>(null) }
     var isLoading by remember { mutableStateOf(false) }
+
+    val ingredientsList = getIngredients(drink)//INGREDIENT VALUE
 
     suspend fun fetchDrink() {
         isLoading = true
@@ -71,10 +82,20 @@ fun CocktailSatNav() {
 
         // Display Drink Instructions
         Text(
-            text = drink?.instructions ?: "",
+            text = (drink?.instructions)?: "",
             fontSize = 14.sp,
             modifier = Modifier.padding(top = 8.dp)
         )
+
+
+        Text(
+            text = if (ingredientsList.isNotEmpty()) {
+                "Ingredients: " + ingredientsList.joinToString(", ")
+            } else { ""/*"No ingredients available" */},
+            fontSize = 14.sp,
+            modifier = Modifier.padding(top = 8.dp)
+        )
+
 
         Spacer(modifier = Modifier.height(20.dp))
 
@@ -89,5 +110,40 @@ fun CocktailSatNav() {
                 Text(text = "Get a Drink!", fontSize = 16.sp, fontWeight = FontWeight.Bold)
             }
         }
+        Button(
+            onClick = { coroutineScope.launch { /*searchDrinks*/ } },
+            colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFFFC107))
+        ) {
+            if (isLoading) {
+                CircularProgressIndicator(color = Color.White, modifier = Modifier.size(20.dp))
+            } else {
+                Text(text = "Search Drinks", fontSize = 16.sp, fontWeight = FontWeight.Bold)
+            }
+        }
     }
 }
+
+fun getIngredients(drink: Drink?): List<String> {
+    return listOfNotNull<String>(
+        drink?.ingredient1?.takeIf { it.isNotBlank() },
+        drink?.ingredient2?.takeIf { it.isNotBlank() },
+        drink?.ingredient3?.takeIf { it.isNotBlank() },
+        drink?.ingredient4?.takeIf { it.isNotBlank() },
+        drink?.ingredient5?.takeIf { it.isNotBlank() }
+    )
+}
+
+
+/*
+fun ingredientsChecker(): String
+{
+    var str = ""
+    for (i in 0..4){
+
+        drink.ingredient1
+    }
+    iterator()
+
+
+    return str
+}*/
