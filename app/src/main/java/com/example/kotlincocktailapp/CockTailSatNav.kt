@@ -32,7 +32,7 @@ fun CocktailSatNav() {
             val response = withContext(Dispatchers.IO) {
                 apiService.getDrink()
             }
-            drink = response.firstOrNull() // Get first drink from API response
+            drink = response.drinks?.firstOrNull() // Get first drink from API response
         } catch (e: Exception) {
             Log.e("API_ERROR", "Error fetching drink: ${e.message}")
         }

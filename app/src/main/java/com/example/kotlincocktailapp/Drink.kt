@@ -1,10 +1,10 @@
 package com.example.kotlincocktailapp
 
 import com.google.gson.annotations.SerializedName
-/*
+
 data class DrinkResponse(
     @SerializedName("drinks") val drinks: List<Drink>?
-)*/
+)
 
 data class Drink (
     @SerializedName("idDrink") val id: String,
