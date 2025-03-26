@@ -110,6 +110,7 @@ fun CocktailSatNav() {
                 Text(text = "Get a Drink!", fontSize = 16.sp, fontWeight = FontWeight.Bold)
             }
         }
+        /*
         Button(
             onClick = { coroutineScope.launch { /*searchDrinks*/ } },
             colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFFFC107))
@@ -120,6 +121,7 @@ fun CocktailSatNav() {
                 Text(text = "Search Drinks", fontSize = 16.sp, fontWeight = FontWeight.Bold)
             }
         }
+        */
     }
 }
 
