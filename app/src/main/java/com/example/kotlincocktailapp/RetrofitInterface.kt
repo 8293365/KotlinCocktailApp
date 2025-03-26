@@ -9,6 +9,7 @@ interface RetrofitInterface {
     @GET("/api/json/v1/1/random.php")
     //suspend fun getDrink(): List<Drink>
     suspend fun getDrink(): DrinkResponse
+    suspend fun searchDrink(): DrinkResponse
 /*
     @POST("Drinks")
     suspend fun addDrink(@Body Drink: Drink)

@@ -13,7 +13,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.core.content.ContextCompat.startActivity
 import coil.compose.AsyncImage
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -111,7 +113,7 @@ fun CocktailSatNav() {
             }
         }
         Button(
-            onClick = { coroutineScope.launch { /*searchDrinks*/ } },
+            onClick = { coroutineScope.launch { startActivity() } },
             colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFFFC107))
         ) {
             if (isLoading) {
@@ -121,6 +123,10 @@ fun CocktailSatNav() {
             }
         }
     }
+}
+
+private fun CoroutineScope.startActivity() {
+    TODO("Not yet implemented")
 }
 
 fun getIngredients(drink: Drink?): List<String> {
